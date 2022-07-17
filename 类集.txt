@@ -1,0 +1,56 @@
+## Collection
+
+1. Colleciton是存放单值的最大接口。
+
+2. Collection及其子类都是用来add()方法来存入对象。
+
+2. Collection接口有List和Set两个子类。
+
+4. List的子类主要掌握ArrayList，List里的内容是可以重复的。
+
+   ​    ArrayList类中的 set()方法可以修改索引处的值
+
+4. Set有HashSet接口和TreeSet接口 ,Set里的内容是不可重复
+
+   1）.  HashSet里的内容是无序排放的
+
+   2）. TreeSet里的内容的有序排放的，因此需要实现Compare接口并覆写其中的compareTo方法来指定排序顺序，否则就会报错
+
+   3）. compareTo方法里比较是哪个属性，就会通过哪个属性来判断两个实例是否相同，compareTo方法中比较字符串用以下的格式:this.name.compareTo(obj.name)
+
+   4）. HashSet则覆写equals和hasCode方法来判断是否相等
+   
+6. Collection类可以返回空的List,Map,Set，但这种方式返回的对象无法进行增加数据，不能用add()方法。
+
+   eg：
+
+   ```java
+   List<String> all = Collecton.emptyList();
+   
+   //allSet.add("a");这行程序会报错
+   Collections.addAll("m");//正常执行
+   Collections.reverse(all);//将集合类中内容反转
+   Colleciotns.binarySearch(all,"m");//检索内容并返回内容为止
+   Colleciotns.replaceAll(all,"m","n");//用n换m
+   Colleciotns.sort(all);//要求集合中的内容都要实现Comparable接口并覆写compareTo()方法
+   Colleciotns.swap(all,1,2);//1，2处内容交换
+   
+   ```
+
+   
+
+## Map
+
+1. Map中是用put()方法来存入对象
+2. Map是用来存放一对值的。
+3. Map有HashMap和TreeMap子类，主要使用HashMap类。
+4. Map.Entry是使用static关键字声明的内部接口，可以使用“外部类.内部类进行调用”。
+5. 用keySet()方法来取得keys的值，用Set接收。
+6. 用values()方法来取得value的值，用Collection接收。
+7. 用entrySet()方法来把Map转化成存储单值的Set集合，其中泛型类型是<Map.Entry<K,V>>，然后再迭代输出。
+8. 用map.get(K)来查找value的值
+9. 如果要使用自定义类的对象来表示Map中的key,则对象所在的类要复写equals(),和hasCode方法，否则无法找到对应value。
+
+## Iterator
+
+1. Iterator专门用来参与输出集合
